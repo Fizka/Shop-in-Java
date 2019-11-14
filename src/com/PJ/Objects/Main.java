@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class Main {
 
-    public static Data basedate;
 
     public static void main(String[] args) {
 
@@ -32,7 +31,7 @@ public class Main {
             System.out.println(i + ": " + th[i]);
         }
 
-        basedate = new Data();
+
 
         EventQueue.invokeLater(new Runnable() {
           @Override

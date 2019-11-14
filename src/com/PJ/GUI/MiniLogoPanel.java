@@ -25,6 +25,8 @@ public class MiniLogoPanel extends JPanel implements MainFrameShop {
 
     private JPanel mainPanel;
 
+    int idCustomer;
+
     MiniLogoPanel(JFrame frame)
     {
         this.frame = frame;

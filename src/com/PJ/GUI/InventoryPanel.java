@@ -1,5 +1,6 @@
 package com.PJ.GUI;
 
+import com.PJ.Database.SelectStatement;
 import com.PJ.Objects.*;
 
 import java.lang.String;
@@ -44,12 +45,19 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
     private String StringProducentName[] = new String[intQuantity];
     private String StringScription[]  = new String[intQuantity];
 
-    java.util.List<Customer> customerList = Main.basedate.selectCustomer();
-    java.util.List<Product> productList = Main.basedate.selectProduct();
-    java.util.List<Inventory> inventoryList = Main.basedate.selectInventory();
-    java.util.List<Shipment> orderList = Main.basedate.selectOrder();
-    List<ShopAssistant> basketList = Main.basedate.selectShopAssistant();
+    SelectStatement date = new SelectStatement();
 
+    List<Customer> customerList = date.selectCustomer();
+    List<Product> productList = date.selectProduct();
+    List<Inventory> inventoryList = date.selectInventory();
+    List<Shipment> orderList = date.selectOrder();
+    List<ShopAssistant> basketList = date.selectShopAssistant();
+
+    Product dataProduct;
+    Inventory dataInventory;
+    Shipment dataShipment;
+    ShopAssistant dataShopAssistant;
+    Customer dataCustomer;
 
 
     InventoryPanel(StartListener listener, JFrame frame)
@@ -90,7 +98,7 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
             addToBusket[i].setBackground(Color.GRAY);
             addToBusket[i].setForeground(Color.black);
 
-            StringProductName[i] = "Nazwa";
+            StringProductName[i] = "Nazwa" ;
             StringProducentName[i] = "Producent";
             StringScription[i] = "Order details:";
 

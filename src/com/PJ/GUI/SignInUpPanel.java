@@ -2,6 +2,7 @@ package com.PJ.GUI;
 
 import com.PJ.Database.SelectStatement;
 import com.PJ.Objects.*;
+import com.PJ.Server.UserValidator;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -38,25 +39,29 @@ public class SignInUpPanel extends JPanel implements MainFrameShop, KeyListener{
         return textUserName.getText();
     }
 
-    public String getUserPassdw()
-    {
-        return textUserPassdw.getText();
+    public String getPassword() {
+        String password = "";
+        char[] pass = textUserPassdw.getPassword();
+        for(int i=0; i<pass.length; i++) {
+            password += pass[i];
+        }
+        return password;
     }
 
     private ImageIcon iconButtonGoBack;
     private ImageIcon iconButtonConfirm;
 
     private JTextField textUserName;
-    private JTextField textUserPassdw;
+    private JPasswordField textUserPassdw;
 
     private JLabel labelUserName;
     private JLabel labelUserPassdw;
 
     private JButton buttonConfirm;
     private JButton buttonGoBack;
-
+    SelectStatement date = new SelectStatement();
     //dane do logowania
-    java.util.List<Customer> customerList = Main.basedate.selectCustomer();
+    java.util.List<Customer> customerList = date.selectCustomer();
 
 
 
@@ -89,7 +94,7 @@ public class SignInUpPanel extends JPanel implements MainFrameShop, KeyListener{
         textUserName = new JTextField("Username", 20);
         textUserName.setBackground(Color.GRAY);
 
-        textUserPassdw = new JTextField("Password", 20);
+        textUserPassdw = new JPasswordField("Password", 20);
         textUserPassdw.setBackground(Color.GRAY);
 
         iconButtonConfirm = new ImageIcon("C:\\ProjektJava\\src\\com\\PJ\\icon\\share.png");
@@ -170,7 +175,7 @@ public class SignInUpPanel extends JPanel implements MainFrameShop, KeyListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            //zmiany wyglądu wywołujemy w wątku dystrybucji zdarzeń
+
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -188,7 +193,12 @@ public class SignInUpPanel extends JPanel implements MainFrameShop, KeyListener{
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            //zmiany wyglądu wywołujemy w wątku dystrybucji zdarzeń
+
+            System.out.println("I am working!");
+            String name = getUserName();
+            String password = getPassword();
+
+            if (UserValidator.authenticate(name, password)) {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -199,7 +209,10 @@ public class SignInUpPanel extends JPanel implements MainFrameShop, KeyListener{
                     frame.validate();
                 }
             });
+
         }
     }
+    }
+
 }
 

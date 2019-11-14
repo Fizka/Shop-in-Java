@@ -1,9 +1,8 @@
 package com.PJ.GUI;
 
-
-// koszyk klienta
-
+import com.PJ.Database.SelectStatement;
 import com.PJ.Objects.*;
+import com.PJ.Server.UserValidator;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -37,23 +36,27 @@ public class CustomerPanel extends JPanel implements MainFrameShop,ActionListene
     private JPanel orderPanel;
     private JPanel datePanel;
 
-    java.util.List<Customer> CustomerList = Main.basedate.selectCustomer();
-    java.util.List<Product> productList = Main.basedate.selectProduct();
+    SelectStatement date = new SelectStatement();
 
-    java.util.List<Shipment> orderList = Main.basedate.selectOrder();
-    // adres, telefon -> do informacji
-    List<ShopAssistant> basketList = Main.basedate.selectShopAssistant();
+    List<Product> productList = date.selectProduct();
+    List<Shipment> orderList = date.selectOrder();
+    List<ShopAssistant> basketList = date.selectShopAssistant();
 
+    Product dataProduct;
+    Shipment dataShipment;
+    ShopAssistant dataShopAssistant;
 
     CustomerPanel(JFrame frame){
 
         this.frame = frame;
         CreatePanels();
 
-
     }
 
     void CreatePanels(){
+
+        firtsName = UserValidator.dateCustomer.getFirstName();
+        lastName = UserValidator.dateCustomer.getLastNameString();
 
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(frameSize));

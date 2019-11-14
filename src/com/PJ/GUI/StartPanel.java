@@ -21,6 +21,7 @@ public class StartPanel extends JPanel implements MainFrameShop {
     private StartPanel startPanel;
 
 
+
     public StartPanel(StartListener listener){
 
         super();

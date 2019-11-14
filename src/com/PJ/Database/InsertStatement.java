@@ -9,12 +9,14 @@ import java.sql.SQLException;
 public class InsertStatement extends CreateStatement implements ShopDatabase {
 
 
-public boolean insertCustomer(String user_Name, String user_Passwd )
+public boolean insertCustomer(String user_Name, String user_Passwd, String first_Name, String last_Name )
 {
     try{
-        PreparedStatement prepStmt = conn.prepareStatement("insert into Customer values (NULL, ?, ?);");
+        PreparedStatement prepStmt = conn.prepareStatement("insert into Customer values (NULL, ?, ?, ?, ?);");
         prepStmt.setString(1,user_Name);
         prepStmt.setString(2,user_Passwd);
+        prepStmt.setString(3,first_Name);
+        prepStmt.setString(4,last_Name);
         prepStmt.execute();
     } catch (SQLException e)
     {

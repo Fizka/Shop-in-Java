@@ -43,7 +43,9 @@ public class CreateStatement implements ShopDatabase {
         String createCustomer = "CREATE TABLE IF NOT EXISTS `Customer` ( "
                 + "`id_customer` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`user_Name` varchar(255),"
-                + "`user_Passwd` varchar(255)"
+                + "`user_Passwd` varchar(255),"
+                + "`first_Name` varchar(255),"
+                + "`last_Name` varchar(255)"
                 + " )";
 
         String createShopAssistant = "CREATE TABLE IF NOT EXISTS `ShopAssistant` ( "

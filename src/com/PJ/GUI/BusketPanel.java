@@ -1,5 +1,6 @@
 package com.PJ.GUI;
 
+import com.PJ.Database.SelectStatement;
 import com.PJ.Objects.*;
 
 import javax.swing.*;
@@ -37,12 +38,16 @@ public class BusketPanel extends JPanel implements  MainFrameShop {
     private String  my[] = new String[iteracja];
 
     //userid do konstruktora, quantity z bazy, cena z funkcji + baza, dane produktów z bazy
+    SelectStatement date = new SelectStatement();
+    List<Product> productList = date.selectProduct();
+    List<Inventory> inventoryList = date.selectInventory();
+    List<Shipment> orderList = date.selectOrder();
+    List<ShopAssistant> basketList = date.selectShopAssistant();
 
-    java.util.List<Product> productList = Main.basedate.selectProduct();
-    java.util.List<Inventory> inventoryList = Main.basedate.selectInventory();
-    java.util.List<Shipment> orderList = Main.basedate.selectOrder();
-    List<ShopAssistant> basketList = Main.basedate.selectShopAssistant();
-
+    Product dataProduct;
+    Inventory dataInventory;
+    Shipment dataShipment;
+    ShopAssistant dataShopAssistant;
 
     BusketPanel(JFrame mainFrame){
 

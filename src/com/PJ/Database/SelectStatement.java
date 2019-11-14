@@ -14,13 +14,15 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
         try {
             ResultSet result = stat.executeQuery("SELECT * FROM Customer");
             int id_customer;
-            String user_Passwd, user_Name;
+            String user_Passwd, user_Name, first_Name,last_Name ;
             while (result.next()) {
                 id_customer = result.getInt("id_customer");
                 user_Passwd = result.getString("user_Passwd");
                 user_Name = result.getString("user_Name");
+                first_Name = result.getString("first_Name");
+                last_Name = result.getString("last_Name");
 
-                list_Customer.add(new Customer(user_Name, user_Passwd, id_customer));
+                list_Customer.add(new Customer(user_Name, user_Passwd, id_customer, first_Name, last_Name));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");

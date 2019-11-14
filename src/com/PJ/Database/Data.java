@@ -1,31 +1,42 @@
 package com.PJ.Database;
 
+import com.PJ.GUI.MainFrame;
 import com.PJ.Objects.*;
 
+import java.awt.*;
 import java.util.List;
 
 public class Data extends SelectStatement{
 
     public Data(){
 
-
         addDate();
         print();
 
+    }
+
+    public static void main(String [] args){
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Data();
+            }
+        });
     }
 
     void addDate(){
 
         SelectStatement sc = new SelectStatement();
 
-        sc.insertCustomer("Admin","haslo");
-        sc.insertCustomer("Ada","haslo1");
-        sc.insertCustomer("Pawel","haslo2");
-        sc.insertCustomer("Robert","haslo3");
-        sc.insertCustomer("Kasia","haslo4");
-        sc.insertCustomer("Asia","haslo5");
-        sc.insertCustomer("Dorota","haslo6");
-        sc.insertCustomer("Magda","haslo7");
+        sc.insertCustomer("Admin","haslo", "Admin","God");
+        sc.insertCustomer("Ada","haslo1","Ada","Goro");
+        sc.insertCustomer("Pawel","haslo2","Pawel","Typon");
+        sc.insertCustomer("Robert","haslo3","Robert","Kiwi");
+        sc.insertCustomer("Kasia","haslo4","Kasia","Warkon");
+        sc.insertCustomer("Asia","haslo5","Asia","Zygon");
+        sc.insertCustomer("Dorota","haslo6","Dorota","Lolo");
+        sc.insertCustomer("Magda","haslo7","Magda","Fame");
 
         sc.insertProduct("20", "Szampon Malinowy");
         sc.insertProduct("14.50", "Szampon Kiwi");
