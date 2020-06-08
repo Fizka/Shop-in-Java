@@ -4,16 +4,51 @@ public class Customer {
 
     private String user_Name;
     private String user_Passwd;
-    private int id_customer;
+    private int id_customer, telefon_number,id_basket;
     private String firstName;
-    private String  lastName;
+    private String  lastName, address;
 
-    public Customer(String user_Name, String user_Passwd, int id_customer, String firstName, String lastName) {
+    public Customer(String user_Name, String user_Passwd, int id_customer, int telefon_number, String firstName, String lastName, String address, int id_basket) {
         this.user_Name = user_Name;
         this.user_Passwd = user_Passwd;
         this.id_customer = id_customer;
-        this.lastName = lastName;
+        this.telefon_number = telefon_number;
         this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.id_basket = id_basket;
+    }
+
+    public int getId_basket() {
+        return id_basket;
+    }
+
+    public void setId_basket(int id_basket) {
+        this.id_basket = id_basket;
+    }
+
+    public int getTelefon_number() {
+        return telefon_number;
+    }
+
+    public void setTelefon_number(int telefon_number) {
+        this.telefon_number = telefon_number;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUser_Name() {
@@ -61,9 +96,12 @@ public class Customer {
         return "Customer{" +
                 "user_Name='" + user_Name + '\'' +
                 ", user_Passwd='" + user_Passwd + '\'' +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", id_customer=" + id_customer +
+                ", telefon_number=" + telefon_number +
+                ", id_basket=" + id_basket +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

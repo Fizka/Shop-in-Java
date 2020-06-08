@@ -50,13 +50,13 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
     List<Customer> customerList = date.selectCustomer();
     List<Product> productList = date.selectProduct();
     List<Inventory> inventoryList = date.selectInventory();
-    List<Shipment> orderList = date.selectOrder();
-    List<ShopAssistant> basketList = date.selectShopAssistant();
+    List<Basket> basketList = date.selectBusket();
+    List<Order> orderList = date.selectOrder();
 
     Product dataProduct;
     Inventory dataInventory;
-    Shipment dataShipment;
-    ShopAssistant dataShopAssistant;
+    Basket dataBasket;
+    Order dataOrder;
     Customer dataCustomer;
 
 
@@ -100,7 +100,7 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
 
             StringProductName[i] = "Nazwa" ;
             StringProducentName[i] = "Producent";
-            StringScription[i] = "Order details:";
+            StringScription[i] = "Basket details:";
 
             labelProductName = new JLabel(StringProductName[i]);
             labelProductName.setFont(myFonttwo);

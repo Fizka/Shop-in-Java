@@ -1,25 +1,16 @@
 package com.PJ.Objects;
 
-public class Shipment {
+public class Basket {
 
-    private int id_order;
+//order czyli cos juz kupione!
     private int id_basket;
     private int amount;
     private int id_product;
 
-    public Shipment(int id_product, int id_order, int id_basket, int amount) {
-        this.id_order = id_order;
+    public Basket(int id_product, int id_basket, int amount) {
         this.id_basket = id_basket;
         this.amount = amount;
         this.id_product = id_product;
-    }
-
-    public int getId_order() {
-        return id_order;
-    }
-
-    public void setId_order(int id_order) {
-        this.id_order = id_order;
     }
 
     public int getId_product() {
@@ -48,8 +39,7 @@ public class Shipment {
 
     @Override
     public String toString() {
-        return "Shipment{" +
-                "id_order=" + id_order +
+        return "Basket{" +
                 ", id_basket=" + id_basket +
                 ", amount=" + amount +
                 ", id_product=" + id_product +

@@ -38,39 +38,40 @@ public class CreateStatement implements ShopDatabase {
                 "`id_product` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`price` INT,"
                 + "`product_name` varchar(255)"
+                + "`amount` INT,"
+                + "`category` varchar(255)"
                 + " )";
 
         String createCustomer = "CREATE TABLE IF NOT EXISTS `Customer` ( "
                 + "`id_customer` INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "`id_basket` INT, "
                 + "`user_Name` varchar(255),"
                 + "`user_Passwd` varchar(255),"
                 + "`first_Name` varchar(255),"
                 + "`last_Name` varchar(255)"
-                + " )";
-
-        String createShopAssistant = "CREATE TABLE IF NOT EXISTS `ShopAssistant` ( "
-                + "`id_basket` INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "`id_order` INT, "
-                + "`price` INT,"
                 + "`address` varchar(255),"
                 + "`telefon_number` INT,"
+                + " )";
+
+        //
+        String createOrder = "CREATE TABLE IF NOT EXISTS `Order` ( "
+                + "`id_order` INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "`id_basket` INT, "
+                + "`price` INT,"
                 + "`id_customer` INT,"
                 + "`status` varchar(255)"
                 + " )";
 
-        String createOrder = "CREATE TABLE IF NOT EXISTS `OrderShip` ( " +
-                "`id_order` INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "`id_basket` INT,"
+        String createBasket = "CREATE TABLE IF NOT EXISTS `Basket` ( " +
+                "`id_basket` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`id_product` INT,"
-                + "`amount` INT"
+                + "`quantity` INT,"
                 + " )";
 
 
         String createInventory = "CREATE TABLE IF NOT EXISTS `Inventory` ( "
                 + "`id_inventory` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`id_product` INT,"
-                + "`amount` INT,"
-                + "`category` varchar(255)"
                 + " )";
 
 
@@ -79,9 +80,9 @@ public class CreateStatement implements ShopDatabase {
         try{
             stat.execute(createCustomer);
             stat.execute(createInventory);
-            stat.execute(createOrder);
+            stat.execute(createBasket);
             stat.execute(createProduct);
-            stat.execute(createShopAssistant);
+            stat.execute(createOrder);
         } catch (SQLException e)
         {
             System.err.println("Error - table not created ");

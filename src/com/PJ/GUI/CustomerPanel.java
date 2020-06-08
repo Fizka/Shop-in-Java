@@ -39,12 +39,12 @@ public class CustomerPanel extends JPanel implements MainFrameShop,ActionListene
     SelectStatement date = new SelectStatement();
 
     List<Product> productList = date.selectProduct();
-    List<Shipment> orderList = date.selectOrder();
-    List<ShopAssistant> basketList = date.selectShopAssistant();
+    List<Basket> basketList = date.selectBusket();
+    List<Order> orderList = date.selectOrder();
 
     Product dataProduct;
-    Shipment dataShipment;
-    ShopAssistant dataShopAssistant;
+    Basket dataBasket;
+    Order dataOrder;
 
     CustomerPanel(JFrame frame){
 
@@ -110,7 +110,7 @@ public class CustomerPanel extends JPanel implements MainFrameShop,ActionListene
         labelInformations.setVerticalAlignment(SwingConstants.CENTER);
         labelInformations.setForeground(Color.black);
 
-        labelOrder = new JLabel("Order details: ");
+        labelOrder = new JLabel("Basket details: ");
         labelOrder.setFont(myFonttwo);
         labelOrder.setHorizontalAlignment(SwingConstants.CENTER);
         labelOrder.setVerticalAlignment(SwingConstants.CENTER);

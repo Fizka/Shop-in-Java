@@ -13,16 +13,19 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
         List<Customer> list_Customer = new LinkedList<Customer>();
         try {
             ResultSet result = stat.executeQuery("SELECT * FROM Customer");
-            int id_customer;
-            String user_Passwd, user_Name, first_Name,last_Name ;
+            int id_customer, id_basket, telefon_number;
+            String user_Passwd, user_Name, first_Name,last_Name, address ;
             while (result.next()) {
                 id_customer = result.getInt("id_customer");
-                user_Passwd = result.getString("user_Passwd");
+                id_basket = result.getInt("id_basket");
                 user_Name = result.getString("user_Name");
+                user_Passwd = result.getString("user_Passwd");
                 first_Name = result.getString("first_Name");
                 last_Name = result.getString("last_Name");
+                address = result.getString("address");
+                telefon_number = result.getInt("telefon_number");
 
-                list_Customer.add(new Customer(user_Name, user_Passwd, id_customer, first_Name, last_Name));
+                list_Customer.add(new Customer( user_Name,user_Passwd, id_customer, telefon_number, first_Name,last_Name, address, id_basket ));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");
@@ -32,34 +35,32 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
         return list_Customer;
     }
 
-    public List<ShopAssistant> selectShopAssistant() {
-        List<ShopAssistant> list_ShopAssistant = new LinkedList<ShopAssistant>();
+    public List<Order> selectOrder() {
+        List<Order> list_Order = new LinkedList<Order>();
         try {
-            ResultSet result = stat.executeQuery("SELECT * FROM ShopAssistant");
-            int id_order, price, telefon_number, id_customer, id_basket;
-            String address, status;
+            ResultSet result = stat.executeQuery("SELECT * FROM Order");
+            int id_order, price, id_customer, id_basket;
+            String  status;
             while (result.next()) {
 
                 id_order = result.getInt("id_order");
-                price = result.getInt("price");
-                telefon_number = result.getInt("telefon_number");
-                id_customer = result.getInt("id_customer");
-                address = result.getString("address");
                 id_basket = result.getInt("id_basket");
+                price = result.getInt("price");
+                id_customer = result.getInt("id_customer");
                 status = result.getString("status");
 
-                list_ShopAssistant.add(new ShopAssistant(id_basket,id_order, price , address, telefon_number, id_customer, status));
+                list_Order.add(new Order(id_order,id_basket, price , id_customer, status));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");
             e.printStackTrace();
             return null;
         }
-        return list_ShopAssistant;
+        return list_Order;
     }
 
-    public List<Shipment> selectOrder() {
-        List<Shipment> list_Shipment = new LinkedList<Shipment>();
+    public List<Basket> selectBusket() {
+        List<Basket> list_Basket = new LinkedList<Basket>();
         try {
             ResultSet result = stat.executeQuery("SELECT * FROM OrderShip");
             int id_order, id_basket, id_product, amount;
@@ -71,14 +72,14 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
                 amount = result.getInt("amount");
 
 
-                list_Shipment.add(new Shipment(id_product, id_order, id_basket, amount));
+                list_Basket.add(new Basket(id_product, id_basket, amount));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");
             e.printStackTrace();
             return null;
         }
-        return list_Shipment;
+        return list_Basket;
     }
 
     public List<Inventory> selectInventory() {
@@ -108,14 +109,17 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
         List<Product> list_Product = new LinkedList<Product>();
         try {
             ResultSet result = stat.executeQuery("SELECT * FROM Product");
-            int id_product,price;
-            String product_name;
+            int id_product,price, amount;
+            String product_name, category;
             while (result.next()) {
                 id_product = result.getInt("id_product");
                 price = result.getInt("price");
                 product_name = result.getString("product_name");
+                amount = result.getInt("amount");
+                category = result.getString("category");
 
-                list_Product.add(new Product(id_product, price, product_name));
+
+                list_Product.add(new Product(id_product, price,amount, product_name, category));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");

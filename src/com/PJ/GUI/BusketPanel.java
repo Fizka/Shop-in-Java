@@ -41,13 +41,13 @@ public class BusketPanel extends JPanel implements  MainFrameShop {
     SelectStatement date = new SelectStatement();
     List<Product> productList = date.selectProduct();
     List<Inventory> inventoryList = date.selectInventory();
-    List<Shipment> orderList = date.selectOrder();
-    List<ShopAssistant> basketList = date.selectShopAssistant();
+    List<Basket> basketList = date.selectBusket();
+    List<Order> orderList = date.selectOrder();
 
     Product dataProduct;
     Inventory dataInventory;
-    Shipment dataShipment;
-    ShopAssistant dataShopAssistant;
+    Basket dataBasket;
+    Order dataOrder;
 
     BusketPanel(JFrame mainFrame){
 

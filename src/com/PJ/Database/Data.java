@@ -1,6 +1,5 @@
 package com.PJ.Database;
 
-import com.PJ.GUI.MainFrame;
 import com.PJ.Objects.*;
 
 import java.awt.*;
@@ -28,7 +27,7 @@ public class Data extends SelectStatement{
     void addDate(){
 
         SelectStatement sc = new SelectStatement();
-
+/*
         sc.insertCustomer("Admin","haslo", "Admin","God");
         sc.insertCustomer("Ada","haslo1","Ada","Goro");
         sc.insertCustomer("Pawel","haslo2","Pawel","Typon");
@@ -71,14 +70,14 @@ public class Data extends SelectStatement{
         sc.insertInventory("14", "22", "Makijaz");
         sc.insertInventory("15", "48", "Makijaz");
 
-        sc.insertShopAssistant("","","","", "1","zakonczone");
-        sc.insertShopAssistant("","","","", "1","zakonczone");
-        sc.insertShopAssistant("","","","", "2","zakonczone");
-        sc.insertShopAssistant("","","","", "2","zakonczone");
-        sc.insertShopAssistant("","","","", "3","zakonczone");
-        sc.insertShopAssistant("","","","", "4","zakonczone");
-        sc.insertShopAssistant("","","","", "5","w realizacji");
-        sc.insertShopAssistant("","","","", "6","w realizacji");
+        sc.insertOrder("","","","", "1","zakonczone");
+        sc.insertOrder("","","","", "1","zakonczone");
+        sc.insertOrder("","","","", "2","zakonczone");
+        sc.insertOrder("","","","", "2","zakonczone");
+        sc.insertOrder("","","","", "3","zakonczone");
+        sc.insertOrder("","","","", "4","zakonczone");
+        sc.insertOrder("","","","", "5","w realizacji");
+        sc.insertOrder("","","","", "6","w realizacji");
 
 //kiedy przyjmujemy zamkowienie
         sc.insertOrder("1", "1", "1");
@@ -94,7 +93,7 @@ public class Data extends SelectStatement{
         sc.insertOrder("7", "8", "1");
         sc.insertOrder("1", "2", "1");
         sc.insertOrder("1", "1", "1");
-
+*/
 
 
     }
@@ -104,8 +103,8 @@ public class Data extends SelectStatement{
         List<Customer> customerList = selectCustomer();
         List<Product> productList = selectProduct();
         List<Inventory> inventoryList = selectInventory();
-        List<Shipment> orderList = selectOrder();
-        List<ShopAssistant> basketList = selectShopAssistant();
+        List<Basket> orderList = selectBusket();
+        List<Order> basketList = selectOrder();
 
         System.out.println("Customer list: ");
         for(Customer c: customerList)
@@ -119,12 +118,12 @@ public class Data extends SelectStatement{
         for(Inventory c: inventoryList)
             System.out.println(c);
 
-        System.out.println("Shipment list: ");
-        for(Shipment c: orderList)
+        System.out.println("Basket list: ");
+        for(Basket c: orderList)
             System.out.println(c);
 
-        System.out.println("ShopAssistant list: ");
-        for(ShopAssistant c: basketList)
+        System.out.println("Order list: ");
+        for(Order c: basketList)
             System.out.println(c);
 
         closeConnection();
