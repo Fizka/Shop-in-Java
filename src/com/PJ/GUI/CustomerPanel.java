@@ -20,7 +20,7 @@ public class CustomerPanel extends JPanel implements MainFrameShop,ActionListene
     private String firtsName = "Jan";
     private String lastName = "Kowaliski";
     private String orderString = "Zamowienia, ktore sa realizowane";
-    private String informationAccount = "Klient najwyraznie jest debilem";
+    private String informationAccount = "Informacje o kliencie";
 
     private JLabel labelName;
     private JLabel labelLastName;
@@ -104,7 +104,7 @@ public class CustomerPanel extends JPanel implements MainFrameShop,ActionListene
         labelLastName.setVerticalAlignment(SwingConstants.CENTER);
         labelLastName.setForeground(Color.black);
 
-        labelInformations = new JLabel("customer address: ");
+        labelInformations = new JLabel("customer address: Warszawa" );
         labelInformations.setFont(myFonttwo);
         labelInformations.setHorizontalAlignment(SwingConstants.CENTER);
         labelInformations.setVerticalAlignment(SwingConstants.CENTER);
