@@ -4,12 +4,13 @@ public class Basket {
 
 //order czyli cos juz kupione!
     private int id_basket;
-    private int amount;
+    private int quantity;
     private int id_product;
 
-    public Basket(int id_product, int id_basket, int amount) {
+
+    public Basket(int id_product, int id_basket, int quantity) {
         this.id_basket = id_basket;
-        this.amount = amount;
+        this.quantity = quantity;
         this.id_product = id_product;
     }
 
@@ -22,11 +23,11 @@ public class Basket {
     }
 
     public int getAmount() {
-        return amount;
+        return quantity;
     }
 
     public void setAmount(int amount) {
-        this.amount = amount;
+        this.quantity = amount;
     }
 
     public int getId_basket() {
@@ -41,7 +42,7 @@ public class Basket {
     public String toString() {
         return "Basket{" +
                 ", id_basket=" + id_basket +
-                ", amount=" + amount +
+                ", amount=" + quantity +
                 ", id_product=" + id_product +
                 '}';
     }

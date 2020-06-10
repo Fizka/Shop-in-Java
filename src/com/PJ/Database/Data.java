@@ -27,31 +27,28 @@ public class Data extends SelectStatement{
     void addDate(){
 
         SelectStatement sc = new SelectStatement();
-/*
-        sc.insertCustomer("Admin","haslo", "Admin","God");
-        sc.insertCustomer("Ada","haslo1","Ada","Goro");
-        sc.insertCustomer("Pawel","haslo2","Pawel","Typon");
-        sc.insertCustomer("Robert","haslo3","Robert","Kiwi");
-        sc.insertCustomer("Kasia","haslo4","Kasia","Warkon");
-        sc.insertCustomer("Asia","haslo5","Asia","Zygon");
-        sc.insertCustomer("Dorota","haslo6","Dorota","Lolo");
-        sc.insertCustomer("Magda","haslo7","Magda","Fame");
 
-        sc.insertProduct("20", "Szampon Malinowy");
-        sc.insertProduct("14.50", "Szampon Kiwi");
-        sc.insertProduct("13.77", "Szampon Jagoda");
-        sc.insertProduct("45", "Szampon Balonowy");
-        sc.insertProduct("78", "Szampon Truskawkowy");
-        sc.insertProduct("136", "Szampon Czarna Porzeczka");
-        sc.insertProduct("890", "Płyn do kapieli - Pianka");
-        sc.insertProduct("45", "Balsam Malinowy");
-        sc.insertProduct("23", "Balsam Jagodowy");
-        sc.insertProduct("67", "Balsam Kiwi");
-        sc.insertProduct("12", "Balsam Balonowy");
-        sc.insertProduct("34", "Balsam miodowy");
-        sc.insertProduct("89", "Maskara");
-        sc.insertProduct("26", "Puder");
-        sc.insertProduct("35", "Puder");
+        sc.insertCustomer("1","Admin","haslo", "Jan","Kowlaski", "Warszawa", "987454564");
+        sc.insertCustomer("2","Ada","haslo1","Ada","Goro", "Warszawa", "987454564");
+        sc.insertCustomer("3","Pawel","haslo2","Pawel","Typon", "Warszawa", "987454564");
+        sc.insertCustomer("4","Robert","haslo3","Robert","Kiwi", "Warszawa", "987454564");
+        sc.insertCustomer("5","Kasia","haslo4","Kasia","Warkon", "Warszawa", "987454564");
+
+        sc.insertProduct("20", "Szampon Malinowy","1", "Kosmetyki");
+        sc.insertProduct("14.50", "Szampon Kiwi","1", "Kosmetyki");
+        sc.insertProduct("13.77", "Szampon Jagoda","1", "Kosmetyki");
+        sc.insertProduct("45", "Szampon Balonowy","1", "Kosmetyki");
+        sc.insertProduct("78", "Szampon Truskawkowy","1", "Kosmetyki");
+        sc.insertProduct("136", "Szampon Czarna Porzeczka","1", "Kosmetyki");
+        sc.insertProduct("890", "Płyn do kapieli - Pianka","1", "Kosmetyki");
+        sc.insertProduct("45", "Balsam Malinowy","1", "Kosmetyki");
+        sc.insertProduct("23", "Balsam Jagodowy","1", "Kosmetyki");
+        sc.insertProduct("67", "Balsam Kiwi","1", "Kosmetyki");
+        sc.insertProduct("12", "Balsam Balonowy","1", "Kosmetyki");
+        sc.insertProduct("34", "Balsam miodowy","1", "Kosmetyki");
+        sc.insertProduct("89", "Maskara","1", "Kosmetyki");
+        sc.insertProduct("26", "Puder","1", "Kosmetyki");
+        sc.insertProduct("35", "Puder","1", "Kosmetyki");
 
 
         sc.insertInventory("1", "42", "Kosmetyki do ciala");
@@ -69,32 +66,6 @@ public class Data extends SelectStatement{
         sc.insertInventory("13", "99", "Makijaz");
         sc.insertInventory("14", "22", "Makijaz");
         sc.insertInventory("15", "48", "Makijaz");
-
-        sc.insertOrder("","","","", "1","zakonczone");
-        sc.insertOrder("","","","", "1","zakonczone");
-        sc.insertOrder("","","","", "2","zakonczone");
-        sc.insertOrder("","","","", "2","zakonczone");
-        sc.insertOrder("","","","", "3","zakonczone");
-        sc.insertOrder("","","","", "4","zakonczone");
-        sc.insertOrder("","","","", "5","w realizacji");
-        sc.insertOrder("","","","", "6","w realizacji");
-
-//kiedy przyjmujemy zamkowienie
-        sc.insertOrder("1", "1", "1");
-        sc.insertOrder("2", "2", "1");
-        sc.insertOrder("3", "3", "4");
-        sc.insertOrder("4", "4", "3");
-        sc.insertOrder("5", "7", "2");
-        sc.insertOrder("6", "1", "1");
-        sc.insertOrder("7", "9", "1");
-        sc.insertOrder("8", "12", "1");
-        sc.insertOrder("6", "5", "1");
-        sc.insertOrder("6", "6", "1");
-        sc.insertOrder("7", "8", "1");
-        sc.insertOrder("1", "2", "1");
-        sc.insertOrder("1", "1", "1");
-*/
-
 
     }
 
@@ -118,13 +89,6 @@ public class Data extends SelectStatement{
         for(Inventory c: inventoryList)
             System.out.println(c);
 
-        System.out.println("Basket list: ");
-        for(Basket c: orderList)
-            System.out.println(c);
-
-        System.out.println("Order list: ");
-        for(Order c: basketList)
-            System.out.println(c);
 
         closeConnection();
     }

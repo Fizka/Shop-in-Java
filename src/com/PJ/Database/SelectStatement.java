@@ -25,7 +25,8 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
                 address = result.getString("address");
                 telefon_number = result.getInt("telefon_number");
 
-                list_Customer.add(new Customer( user_Name,user_Passwd, id_customer, telefon_number, first_Name,last_Name, address, id_basket ));
+                list_Customer.add(new Customer( user_Name,user_Passwd, id_customer,
+                        telefon_number, first_Name,last_Name, address, id_basket ));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");
@@ -49,7 +50,7 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
                 id_customer = result.getInt("id_customer");
                 status = result.getString("status");
 
-                list_Order.add(new Order(id_order,id_basket, price , id_customer, status));
+                list_Order.add(new Order(id_basket, id_order, price , id_customer, status));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");
@@ -63,16 +64,16 @@ public class SelectStatement extends InsertStatement implements ShopDatabase {
         List<Basket> list_Basket = new LinkedList<Basket>();
         try {
             ResultSet result = stat.executeQuery("SELECT * FROM OrderShip");
-            int id_order, id_basket, id_product, amount;
+            int id_product, id_basket, quantity;
 
             while (result.next()) {
-                id_order = result.getInt("id_order");
                 id_basket = result.getInt("id_basket");
                 id_product = result.getInt("id_product");
-                amount = result.getInt("amount");
+                quantity = result.getInt("quantity");
 
 
-                list_Basket.add(new Basket(id_product, id_basket, amount));
+
+                list_Basket.add(new Basket(id_product, id_basket, quantity));
             }
         } catch (SQLException e) {
             System.out.println("Error - Select Statement did not work");

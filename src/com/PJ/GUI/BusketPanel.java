@@ -6,6 +6,7 @@ import com.PJ.Objects.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,7 +45,7 @@ public class BusketPanel extends JPanel implements  MainFrameShop {
     List<Basket> basketList = date.selectBusket();
     List<Order> orderList = date.selectOrder();
 
-    Product dataProduct;
+    List produkty = new <Product>ArrayList();
     Inventory dataInventory;
     Basket dataBasket;
     Order dataOrder;
@@ -107,6 +108,17 @@ public class BusketPanel extends JPanel implements  MainFrameShop {
         userDatePanel.add(itemsTotals);
         userDatePanel.add(buttoncheckout);
 
+        produkty.add(new Product(1,20, 1,"Szampon Malinowy", "Kosmetyki"));
+        produkty.add(new Product(1,10, 1,"Szampon Kiwi", "Kosmetyki"));
+        produkty.add(new Product(1,15, 1,"Szampon Jagoda", "Kosmetyki"));
+        produkty.add(new Product(1,30, 1,"Szampon Truskawkowy", "Kosmetyki"));
+        produkty.add(new Product(1,100, 1,"Szampon Porzeczka", "Kosmetyki"));
+        produkty.add(new Product(1,25, 1,"Balsam Malinowy", "Kosmetyki"));
+        produkty.add(new Product(1,60, 1,"Balsam Kiwi", "Kosmetyki"));
+        produkty.add(new Product(1,40, 1,"Balsam Balonowy", "Kosmetyki"));
+        produkty.add(new Product(1,30, 1,"Maskara", "Kosmetyki"));
+        produkty.add(new Product(1,340, 1,"Puder", "Kosmetyki"));
+
         for(int i =0; i<iteracja; i++) {
 
             for(int j=0; j<3; j++) {
@@ -118,12 +130,12 @@ public class BusketPanel extends JPanel implements  MainFrameShop {
 
             }
 
+            Product p = (Product) produkty.get(i);
             cancelbutton[i][0].setText("Drop");
             cancelbutton[i][1].setText("Add");
             cancelbutton[i][2].setText("Remove");
 
-            my[i] = "Fuck You, fuck you, fuck you, fuck you! \t\n Fuck You, fuck you, fuck you, fuck you!";
-
+            my[i] = p.getProduct_name() + " " + p.getCategory() + " cena: " + p.getPrice() + "                                       ";
         }
 
         for(int i =0; i<iteracja; i++) {

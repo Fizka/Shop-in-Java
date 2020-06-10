@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryPanel extends JPanel implements MainFrameShop {
@@ -39,26 +40,19 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
 
     private int intPrice[];
 
-    private int intQuantity = 15;
+    private int intQuantity = 10;
 
     private String StringProductName[] = new String[intQuantity];
     private String StringProducentName[] = new String[intQuantity];
     private String StringScription[]  = new String[intQuantity];
 
-    SelectStatement date = new SelectStatement();
-
-    List<Customer> customerList = date.selectCustomer();
-    List<Product> productList = date.selectProduct();
-    List<Inventory> inventoryList = date.selectInventory();
-    List<Basket> basketList = date.selectBusket();
-    List<Order> orderList = date.selectOrder();
 
     Product dataProduct;
     Inventory dataInventory;
     Basket dataBasket;
     Order dataOrder;
     Customer dataCustomer;
-
+    List produkty = new <Product>ArrayList();
 
     InventoryPanel(StartListener listener, JFrame frame)
     {
@@ -87,6 +81,17 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
 
         intPrice = new int[intQuantity];
 
+        produkty.add(new Product(1,20, 1,"Szampon Malinowy", "Kosmetyki"));
+        produkty.add(new Product(1,10, 1,"Szampon Kiwi", "Kosmetyki"));
+        produkty.add(new Product(1,15, 1,"Szampon Jagoda", "Kosmetyki"));
+        produkty.add(new Product(1,30, 1,"Szampon Truskawkowy", "Kosmetyki"));
+        produkty.add(new Product(1,100, 1,"Szampon Czarna Porzeczka", "Kosmetyki"));
+        produkty.add(new Product(1,25, 1,"Balsam Malinowy", "Kosmetyki"));
+        produkty.add(new Product(1,60, 1,"Balsam Kiwi", "Kosmetyki"));
+        produkty.add(new Product(1,40, 1,"Balsam Balonowy", "Kosmetyki"));
+        produkty.add(new Product(1,30, 1,"Maskara", "Kosmetyki"));
+        produkty.add(new Product(1,340, 1,"Puder", "Kosmetyki"));
+
         for(int i =0; i<intQuantity; i++)
         {
             productPanel = new JPanel();
@@ -98,9 +103,10 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
             addToBusket[i].setBackground(Color.GRAY);
             addToBusket[i].setForeground(Color.black);
 
-            StringProductName[i] = "Nazwa" ;
-            StringProducentName[i] = "Producent";
-            StringScription[i] = "Basket details:";
+            Product p = (Product) produkty.get(i);
+            StringProductName[i] = "Nazwa :" + p.getProduct_name() ;
+            StringProducentName[i] = "Kategoria :" + p.getCategory();
+            StringScription[i] = "Basket details:" + "Brak";
 
             labelProductName = new JLabel(StringProductName[i]);
             labelProductName.setFont(myFonttwo);
@@ -120,7 +126,7 @@ public class InventoryPanel extends JPanel implements MainFrameShop {
             labelScription.setVerticalAlignment(SwingConstants.CENTER);
             labelScription.setForeground(Color.black);
 
-            labelPice = new JLabel(Integer.toString(intPrice[i]));
+            labelPice = new JLabel(Integer.toString(p.getPrice()));
             labelPice.setFont(myFonttwo);
             labelPice.setHorizontalAlignment(SwingConstants.CENTER);
             labelPice.setVerticalAlignment(SwingConstants.CENTER);

@@ -37,7 +37,7 @@ public class CreateStatement implements ShopDatabase {
         String createProduct = "CREATE TABLE IF NOT EXISTS `Product` ( " +
                 "`id_product` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`price` INT,"
-                + "`product_name` varchar(255)"
+                + "`product_name` varchar(255),"
                 + "`amount` INT,"
                 + "`category` varchar(255)"
                 + " )";
@@ -48,9 +48,9 @@ public class CreateStatement implements ShopDatabase {
                 + "`user_Name` varchar(255),"
                 + "`user_Passwd` varchar(255),"
                 + "`first_Name` varchar(255),"
-                + "`last_Name` varchar(255)"
+                + "`last_Name` varchar(255),"
                 + "`address` varchar(255),"
-                + "`telefon_number` INT,"
+                + "`telefon_number` INT"
                 + " )";
 
         //
@@ -65,13 +65,15 @@ public class CreateStatement implements ShopDatabase {
         String createBasket = "CREATE TABLE IF NOT EXISTS `Basket` ( " +
                 "`id_basket` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`id_product` INT,"
-                + "`quantity` INT,"
+                + "`quantity` INT"
                 + " )";
 
 
         String createInventory = "CREATE TABLE IF NOT EXISTS `Inventory` ( "
                 + "`id_inventory` INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "`id_product` INT,"
+                + "`amount` INT,"
+                + "`category` varchar(255)"
                 + " )";
 
 
